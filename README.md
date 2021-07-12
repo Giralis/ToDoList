@@ -1,3 +1,2 @@
 # ToDoList
-Simple list of tasks
-Independet pet-project
+Simple list of tasks, independent pet-project
