@@ -18,8 +18,12 @@ class ToDoTableViewCell: UITableViewCell {
     }
     
     func update(with toDo: ToDo) {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .short
+        
         nameLabel.text = toDo.name
-        dateLabel.text = toDo.date.description
+        dateLabel.text = formatter.string(from: toDo.date)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

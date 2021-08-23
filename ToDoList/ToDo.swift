@@ -18,3 +18,4 @@ struct ToDo {
 }
 var firstTask = ToDo(name: "Enjoy the App", date: Date())
 var toDos = [firstTask]
+var dates = [firstTask.date]

@@ -23,9 +23,13 @@ class ViewController: UIViewController {
     @IBAction func addToDoTapped(_ sender: UIButton) {
         guard let name = textField.text else { return }
         let date = datePicker.date
+        
         toDo = ToDo(name: name, date: date)
+        
         guard let toDoUnwrap = toDo else { return }
         toDos.append(toDoUnwrap)
+        dates.append(toDoUnwrap.date)
+        
     }
     
     
