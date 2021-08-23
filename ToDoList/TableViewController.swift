@@ -25,6 +25,16 @@ class TableViewController: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if color {
+            tableView.cellForRow(at: indexPath)?.backgroundColor = .green
+            color.toggle()
+        } else {
+            color.toggle()
+            tableView.cellForRow(at: indexPath)?.backgroundColor = .white
+        }
+    }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "You've got to do:"
@@ -60,10 +70,10 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            toDos.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            
+        }
     }
     
 
