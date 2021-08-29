@@ -25,16 +25,6 @@ class TableViewController: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if color {
-            tableView.cellForRow(at: indexPath)?.backgroundColor = .green
-            color.toggle()
-        } else {
-            color.toggle()
-            tableView.cellForRow(at: indexPath)?.backgroundColor = .white
-        }
-    }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "You've got to do:"
@@ -83,20 +73,20 @@ class TableViewController: UITableViewController {
           tableView.reloadData()
       }
 
-    /* override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Initial" {
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EditToDo" {
             let indexPath = tableView.indexPathForSelectedRow!
             let toDo = toDos[indexPath.row]
-            let navController = segue.destination as! UINavigationController
-            let ViewController = navController.topViewController as! ViewController
+            let navController = segue.destination
+            let viewController = navController as! ViewController
             
-            ViewController.toDo = toDo
+            viewController.toDo = toDo
         }
-    } */
+    }
 
     
     @IBAction func unwindToEmojiTableViewController(segue: UIStoryboardSegue){
-        guard segue.identifier == "Initial",
+        guard segue.identifier == "saveUnwind",
               let sourceViewController = segue.source as? ViewController,
               let toDo = sourceViewController.toDo else {return}
         
@@ -104,7 +94,7 @@ class TableViewController: UITableViewController {
             toDos[selectedIndexPath.row] = toDo
             tableView.reloadRows(at: [selectedIndexPath], with: .none)
         } else {
-            let newIndexPath = IndexPath(row: toDos.count, section: 1)
+            let newIndexPath = IndexPath(row: toDos.count, section: 0)
             toDos.append(toDo)
             tableView.insertRows(at: [newIndexPath], with: .automatic)
         }

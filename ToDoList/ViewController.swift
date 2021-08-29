@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     }
     var toDo: ToDo?
     
-    @IBAction func addToDoTapped(_ sender: UIButton) {
+    /* @IBAction func addToDoTapped(_ sender: UIButton) {
         guard let name = textField.text else { return }
         let date = datePicker.date
         
@@ -30,17 +30,33 @@ class ViewController: UIViewController {
         toDos.append(toDoUnwrap)
         dates.append(toDoUnwrap.date)
         
-    }
+    } */
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addToDoButton.isEnabled = false
+        
+        if let toDo = toDo {
+            textField.text = toDo.name
+            datePicker.date = toDo.date
+        }
+        updateAddButtonState()
     }
 
     func updateAddButtonState() {
         let name = textField.text ?? ""
         addToDoButton.isEnabled = !name.isEmpty
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        guard segue.identifier == "saveUnwind" else {return}
+        
+        let name = textField.text ?? ""
+        let date = datePicker.date
+        
+        toDo = ToDo(name: name, date: date)
     }
 
 }

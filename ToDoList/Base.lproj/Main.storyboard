@@ -43,6 +43,7 @@
                                 <connections>
                                     <outlet property="dateLabel" destination="UTi-6U-Cph" id="LsX-rL-pEW"/>
                                     <outlet property="nameLabel" destination="nVa-BQ-lAk" id="rdF-ui-1hA"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="EditToDo" id="uR5-Cy-nL9"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -114,11 +115,10 @@
                                         <rect key="frame" x="47" y="120" width="320" height="216"/>
                                     </datePicker>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ef-ZK-n75">
-                                        <rect key="frame" x="173" y="351" width="68" height="30"/>
-                                        <state key="normal" title="Add ToDo"/>
+                                        <rect key="frame" x="170.5" y="351" width="73" height="30"/>
+                                        <state key="normal" title="Save ToDo"/>
                                         <connections>
-                                            <action selector="addToDoTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vlr-iu-8HD"/>
-                                            <segue destination="4pD-fU-9ER" kind="unwind" unwindAction="unwindToEmojiTableViewControllerWithSegue:" id="tY1-ae-Gf7"/>
+                                            <segue destination="4pD-fU-9ER" kind="unwind" identifier="saveUnwind" unwindAction="unwindToEmojiTableViewControllerWithSegue:" id="tY1-ae-Gf7"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -149,6 +149,9 @@
             <point key="canvasLocation" x="35" y="94"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="1aO-7l-Ybd"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
