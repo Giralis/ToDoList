@@ -30,6 +30,16 @@ class TableViewController: UITableViewController {
         return "You've got to do:"
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        if cell?.accessoryType == .checkmark {
+            cell?.accessoryType = .none
+        } else {
+            cell?.accessoryType = .checkmark
+        }
+    }
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return toDos.count
     }
@@ -40,6 +50,7 @@ class TableViewController: UITableViewController {
         
         
         let toDo = toDos[indexPath.row]
+        
         
         cell.update(with: toDo)
         cell.showsReorderControl = true
@@ -62,8 +73,7 @@ class TableViewController: UITableViewController {
             // Delete the row from the data source
             toDos.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            
-        }
+        } 
     }
     
 
