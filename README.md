@@ -1,2 +1,2 @@
 # ToDoList
-Simple list of tasks, independent pet-project MVC + Core Data
+Simple list of tasks in tableView, MVC + Core Data
