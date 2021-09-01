@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class TableViewController: UITableViewController {
 
@@ -17,7 +18,38 @@ class TableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        loadContext()
         tableView.reloadData()
+    }
+    
+    func loadContext() {
+        var toDo = ToDoStr(name: "Welcome!", date: Date())
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ToDoEntity")
+        
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            for result in results as! [NSManagedObject] {
+                toDo.name = result.value(forKey: "name") as! String
+                toDo.date = result.value(forKey: "date") as! Date
+                toDos.append(toDo)
+            }
+        } catch {
+            let nserror = error as NSError
+            let alert = UIAlertController(title: "Error", message: "Unresolved error \(nserror), \(nserror.userInfo)", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        for toDo in toDos {
+            saveContext(name: toDo.name, date: toDo.date)
+        }
     }
 
     // MARK: - Table view data source
@@ -110,6 +142,23 @@ class TableViewController: UITableViewController {
         }
     }
 
-
-
+    func saveContext(name: String, date: Date) {
+       let appDelegate = UIApplication.shared.delegate as! AppDelegate
+       let managedContext = appDelegate.persistentContainer.viewContext
+       
+       guard let entityDescription = NSEntityDescription.entity(forEntityName: "ToDoEntity", in: managedContext) else { return }
+       let managedObject = NSManagedObject(entity: entityDescription, insertInto: managedContext)
+       
+       managedObject.setValue(name, forKey: "name")
+       managedObject.setValue(date, forKey: "date")
+       
+       do {
+           try managedContext.save()
+       } catch {
+           let nserror = error as NSError
+           let alert = UIAlertController(title: "Error", message: "Unresolved error \(nserror), \(nserror.userInfo)", preferredStyle: .alert)
+           alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+           self.present(alert, animated: true, completion: nil)
+       }
+   }
 }

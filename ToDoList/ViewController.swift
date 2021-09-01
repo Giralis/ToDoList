@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import CoreData
 
 class ViewController: UIViewController {
 
@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     @IBAction func textEditingChanged(_ sender: UITextField) {
         updateAddButtonState()
     }
-    var toDo: ToDo?
+    var toDo: ToDoStr?
     
     /* @IBAction func addToDoTapped(_ sender: UIButton) {
         guard let name = textField.text else { return }
@@ -56,7 +56,7 @@ class ViewController: UIViewController {
         let name = textField.text ?? ""
         let date = datePicker.date
         
-        toDo = ToDo(name: name, date: date)
+        toDo = ToDoStr(name: name, date: date)
     }
 
 }

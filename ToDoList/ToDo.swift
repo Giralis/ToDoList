@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ToDo {
+struct ToDoStr {
     var name: String
     var date: Date
     
@@ -16,7 +16,5 @@ struct ToDo {
         self.date = date
     }
 }
-var firstTask = ToDo(name: "Enjoy the App", date: Date())
-var toDos = [firstTask]
-var dates = [firstTask.date]
-var color = true
+var toDos = [ToDoStr]()
+var dates = [Date]()

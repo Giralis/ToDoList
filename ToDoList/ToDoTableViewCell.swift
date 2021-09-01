@@ -17,7 +17,7 @@ class ToDoTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-    func update(with toDo: ToDo) {
+    func update(with toDo: ToDoStr) {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
         formatter.timeStyle = .short

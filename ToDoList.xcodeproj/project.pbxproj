@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F7C037526DE3030006E193E /* ToDoList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9F7C037326DE3030006E193E /* ToDoList.xcdatamodeld */; };
 		9FB8D4212663B5460061C653 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB8D4202663B5460061C653 /* AppDelegate.swift */; };
 		9FB8D4232663B5460061C653 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB8D4222663B5460061C653 /* SceneDelegate.swift */; };
 		9FB8D4252663B5460061C653 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB8D4242663B5460061C653 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9F7C037426DE3030006E193E /* ToDoList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDoList.xcdatamodel; sourceTree = "<group>"; };
 		9FB8D41D2663B5450061C653 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FB8D4202663B5460061C653 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FB8D4222663B5460061C653 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				9FB8D43C26642C300061C653 /* ToDoTableViewCell.swift */,
 				9FB8D43E2664F6AE0061C653 /* TableViewController.swift */,
 				9FB8D4202663B5460061C653 /* AppDelegate.swift */,
+				9F7C037326DE3030006E193E /* ToDoList.xcdatamodeld */,
 				9FB8D4222663B5460061C653 /* SceneDelegate.swift */,
 				9FB8D4242663B5460061C653 /* ViewController.swift */,
 				9FB8D4262663B5460061C653 /* Main.storyboard */,
@@ -152,6 +155,7 @@
 				9FB8D4212663B5460061C653 /* AppDelegate.swift in Sources */,
 				9FB8D43D26642C300061C653 /* ToDoTableViewCell.swift in Sources */,
 				9FB8D4232663B5460061C653 /* SceneDelegate.swift in Sources */,
+				9F7C037526DE3030006E193E /* ToDoList.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +357,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9F7C037326DE3030006E193E /* ToDoList.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9F7C037426DE3030006E193E /* ToDoList.xcdatamodel */,
+			);
+			currentVersion = 9F7C037426DE3030006E193E /* ToDoList.xcdatamodel */;
+			path = ToDoList.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9FB8D4152663B5450061C653 /* Project object */;
 }
